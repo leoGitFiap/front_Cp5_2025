@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário Melodia</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Poetsen One -->
+  <link href="https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poetsen One', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    /* Custom gradient for vibrant effect */
+    .bg-gradient-melodia {
+      background: linear-gradient(135deg, #6B46C1, #E53E3E);
+    }
+  </style>
+</head>
+<body class="bg-gradient-melodia text-white">
+  <!-- Formulário de Contato Section -->
+  <section class="py-16">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-semibold mb-8">Junte-se à Comunidade Melodia</h2>
+      <p class="text-lg mb-8">Insira seu e-mail para receber novidades e atualizações exclusivas.</p>
+      <form id="email-form" class="max-w-md mx-auto">
+        <div class="flex items-center border-b-2 border-white py-2">
+          <input type="email" name="email" placeholder="Digite seu e-mail" class="appearance-none bg-transparent border-none w-full text-white placeholder-white mr-3 py-1 px-2 leading-tight focus:outline-none" required>
+          <button type="submit" class="bg-white text-purple-800 font-semibold py-2 px-6 rounded-full hover:bg-purple-100 transition">Enviar</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- JavaScript for Form Handling -->
+  <script>
+    document.getElementById('email-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = e.target.querySelector('input[name="email"]').value;
+      // Basic email validation
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+        alert('Por favor, insira um e-mail válido.');
+        return;
+      }
+      // Simulate sending to backend
+      console.log('Email registrado:', email);
+      alert('Obrigado por se inscrever! Seu e-mail foi registrado.');
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>
